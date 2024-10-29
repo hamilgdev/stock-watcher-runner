@@ -1,4 +1,5 @@
 const cron = require('node-cron');
+const express = require('express');
 
 const { envs } = require('./config/env.config');
 const checkAvailability = require('./helpers/check-availability');
@@ -14,14 +15,24 @@ const jobFunction = async () => {
       envs.DOM_SELECTOR
     );
 
-    if (!isUnavailable)
-      await sendWhatsAppNotification('¡El producto está disponible! 🎉');
-    else console.log('El producto no está disponible');
+    if (isUnavailable) console.log('El producto no está disponible');
+    else await sendWhatsAppNotification('¡El producto está disponible! 🎉');
   } catch (error) {
     console.error('Error en el cron job:', error);
   }
 };
 
 console.log('Cron job scheduled to run at', envs.CRON_SCHEDULE_TIME);
-// Test: Run the job every 3 minutes -> '*/3 * * * *'
 cron.schedule(envs.CRON_SCHEDULE_TIME, jobFunction);
+
+const app = express();
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date() });
+});
+
+app.listen(PORT, () => {
+  console.log(
+    `Health check server running at http://localhost:${envs.PORT}/health`
+  );
+});
