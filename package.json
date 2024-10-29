@@ -1,0 +1,16 @@
+{
+  "name": "stock-watcher-runner",
+  "version": "0.0.1",
+  "description": "StockWatcher is an runner that monitors product availability online and notifies you when items are back in stock, so you don’t miss out on getting them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^3.1.7",
+    "playwright": "^1.48.2"
+  }
+}
