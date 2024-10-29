@@ -4,7 +4,7 @@
   "description": "StockWatcher is an runner that monitors product availability online and notifies you when items are back in stock, so you don’t miss out on getting them.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js"
   },
   "keywords": [],
   "author": "",
