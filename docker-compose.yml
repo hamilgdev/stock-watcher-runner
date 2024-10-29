@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  stock-watcher:
+    image: stock-watcher-runner-prod
+    container_name: stock-watcher-runner
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env

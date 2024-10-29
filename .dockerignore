@@ -1,0 +1,15 @@
+# comment
+*/temp*
+*/*/temp*
+temp?
+
+# Tests
+*/coverage
+*/.nyc_output
+
+# MD
+*.md
+
+dist/
+node_modules/
+.vscode/
