@@ -1,16 +1,30 @@
+const cron = require('node-cron');
+
+const { envs } = require('./config/env.config');
 const checkAvailability = require('./helpers/check-availability');
 const sendWhatsAppNotification = require('./notifications/send-whatsapp-notification');
 
-const PRODUCT_IN_SHOP_PAGE =
-  'https://suplementoscolombia.co/creatina-micronizada-on-60-servcios';
-const $ELEMENT = '.new_price';
+let count = 1;
 
-const main = async () => {
-  const isUnavailable = await checkAvailability(PRODUCT_IN_SHOP_PAGE, $ELEMENT);
+const jobFunction = async () => {
+  console.log('Running cron job...' + count++);
+  try {
+    const isUnavailable = await checkAvailability(
+      envs.URL_PRODUCT_SHOP,
+      envs.DOM_SELECTOR
+    );
 
-  if (!isUnavailable)
-    return await sendWhatsAppNotification('Product is available');
-  return console.log('Product is unavailable');
+    if (!isUnavailable)
+      await sendWhatsAppNotification('¡El producto está disponible! 🎉');
+    else console.log('El producto no está disponible');
+  } catch (error) {
+    console.error('Error en el cron job:', error);
+  }
 };
 
-main();
+console.log(
+  'Cron job scheduled to run at. Every day at 8:00 and 17:00:',
+  envs.CRON_SCHEDULE_TIME
+);
+// Runs every day at 8:00 am and 05:00 pm
+cron.schedule(envs.CRON_SCHEDULE_TIME, jobFunction);

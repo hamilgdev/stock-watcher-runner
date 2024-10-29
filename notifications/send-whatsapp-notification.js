@@ -1,4 +1,5 @@
-import { envs } from '../config/env.config';
+const { envs } = require('../config/env.config');
+const senderClient = require('../config/sender');
 
 const sendWhatsAppNotification = async (message) => {
   try {
