@@ -24,4 +24,4 @@ const jobFunction = async () => {
 
 console.log('Cron job scheduled to run at', envs.CRON_SCHEDULE_TIME);
 // Test: Run the job every 3 minutes -> '*/3 * * * *'
-cron.schedule('*/3 * * * *', jobFunction);
+cron.schedule(envs.CRON_SCHEDULE_TIME, jobFunction);
