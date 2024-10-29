@@ -1,8 +1,11 @@
 const playwright = require('playwright');
+const { envs } = require('./env.config');
+
+const isProduction = envs.NODE_ENV === 'production';
 
 const scrapper = async (url) => {
   const launchOptions = {
-    headless: false,
+    headless: isProduction, // change to true for production to run in the background
   };
 
   try {

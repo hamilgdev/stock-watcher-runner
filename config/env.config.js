@@ -2,6 +2,7 @@ const Joi = require('joi');
 require('dotenv').config();
 
 const envVarsSchema = Joi.object({
+  NODE_ENV: Joi.string().default('development'),
   TWILIO_SID: Joi.string().required(),
   TWILIO_AUTH_TOKEN: Joi.string().required(),
   TWILIO_PHONE_NUMBER: Joi.string().required(),

@@ -22,9 +22,6 @@ const jobFunction = async () => {
   }
 };
 
-console.log(
-  'Cron job scheduled to run at. Every day at 8:00 and 17:00:',
-  envs.CRON_SCHEDULE_TIME
-);
-// Runs every day at 8:00 am and 05:00 pm
-cron.schedule(envs.CRON_SCHEDULE_TIME, jobFunction);
+console.log('Cron job scheduled to run at', envs.CRON_SCHEDULE_TIME);
+// Test: Run the job every 3 minutes -> '*/3 * * * *'
+cron.schedule('*/3 * * * *', jobFunction);
