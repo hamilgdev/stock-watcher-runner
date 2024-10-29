@@ -4,6 +4,8 @@
   "description": "StockWatcher is an runner that monitors product availability online and notifies you when items are back in stock, so you don’t miss out on getting them.",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npx playwright install",
+    "build": "npm run prebuild && npm run start",
     "start": "node main.js"
   },
   "keywords": [],
