@@ -48,16 +48,16 @@ npm start
 ## 🛠️ Technologies Used
 
 - **Node.js**: The runtime environment for the app’s backend.
-- **Playwright**: Used for web scraping the product page in headless mode.
+- **Puppeteer**: Used for web scraping the product page in headless mode.
 - **Twilio API**: Used to send availability notifications via WhatsApp or SMS.
 - **node-cron**: Schedules automated tasks at specified time intervals.
 
 ### 📦 Key npm Packages
 
 - [dotenv](https://www.npmjs.com/package/dotenv): Loads environment variables from a `.env` file.
-- [node-cron](https://www.npmjs.com/package/dotenv): A library for scheduling cron tasks in Node.js.
-- [twilio](https://www.npmjs.com/package/dotenv): Twilio API for sending notifications through WhatsApp or SMS.
-- [playwright](https://www.npmjs.com/package/dotenv): Allows interaction and data extraction from web pages in headless mode.
+- [node-cron](https://www.npmjs.com/package/node-cron): A library for scheduling cron tasks in Node.js.
+- [twilio](https://www.npmjs.com/package/twilio): Twilio API for sending notifications through WhatsApp or SMS.
+- [puppeteer](http://npmjs.com/package/puppeteer): Allows interaction and data extraction from web pages in headless mode.
 
 ## 📖 Project Structure
 
