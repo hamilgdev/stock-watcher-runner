@@ -32,7 +32,5 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(envs.PORT, () => {
-  console.log(
-    `Health check server running at http://localhost:${envs.PORT}/health`
-  );
+  console.log('Server running on port', envs.PORT);
 });
