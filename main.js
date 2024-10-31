@@ -31,7 +31,7 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date() });
 });
 
-app.listen(PORT, () => {
+app.listen(envs.PORT, () => {
   console.log(
     `Health check server running at http://localhost:${envs.PORT}/health`
   );
